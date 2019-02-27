@@ -102,9 +102,15 @@ sub Run {
         function ShowDynamicFields() {
             \$('.Row').show();
         }
+        
+        function HideDynamicFields() {
+            \$('.Row').hide();
+        }        
+		
+		HideDynamicFields();        
 
         function DoHideDynamicFields() {
-            ShowDynamicFields();
+            HideDynamicFields();
             \$.each( HideDynamicFieldRules, function( Field, Config ) {
                 var Current = \$('#' + Field).val();
                 var ToHide  = Config[Current];
@@ -116,7 +122,7 @@ sub Run {
 
         function HideDynamicField( FieldName ) {
             \$('.Row_DynamicField_' + FieldName ).val('');
-            \$('.Row_DynamicField_' + FieldName ).hide();
+            \$('.Row_DynamicField_' + FieldName ).show();
         }
 
         Core.App.Ready( function() {
